@@ -96,3 +96,19 @@ def news(identifier):
         Dataset as a Pandas DataFrame
     """
     return get('news', identifier=str.upper(identifier))
+
+
+def exchange(identifier, price_date):
+    """
+    Get prices for all the securities listed on an exchange
+
+    Args:
+        identifier: exchange symbol associated with the market
+        price_date: date of the query
+
+    Returns:
+        Dataset as a Pandas DataFrame
+    """
+    return client.get('prices/exchange', identifier=identifier, 
+                      price_date=price_date)
+
